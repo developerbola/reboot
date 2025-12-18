@@ -56,7 +56,7 @@ export default function Home() {
 
           {/* Filter Popover */}
           <Popover>
-            <PopoverTrigger>
+            <PopoverTrigger asChild>
               <Button variant={"outline"} size={"icon"}>
                 <Filter />
               </Button>
