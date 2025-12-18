@@ -199,7 +199,7 @@ const Player = ({ src }: { src: string }) => {
       {/* Custom Controls */}
       <div
         className={cn(
-          "absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-3 bg-gradient-to-t from-black/60 via-black/40 to-transparent transition-all duration-200",
+          "absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-3 bg-linear-to-t from-black/60 via-black/40 to-transparent transition-all duration-200",
           !showControls ? "opacity-0 invisible" : "opacity-100 visible"
         )}
       >

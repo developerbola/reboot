@@ -34,7 +34,7 @@ export default function Course() {
     const fetchCourses = async () => {
       try {
         const response = await fetch(
-          "http://gist.githubusercontent.com/poudyalanil/ca84582cbeb4fc123a13290a586da925/raw/14a27bd0bcd0cd323b35ad79cf3b493dddf6216b/videos.json"
+          "https://gist.githubusercontent.com/poudyalanil/ca84582cbeb4fc123a13290a586da925/raw/14a27bd0bcd0cd323b35ad79cf3b493dddf6216b/videos.json"
         );
         const data = await response.json();
         setCourses(data);
@@ -70,8 +70,22 @@ export default function Course() {
           <Player src={currentCourse.src} />
           {/* Course Info */}
           <div className="space-y-2">
-            <h1 className="text-2xl font-semibold">{currentCourse.title}</h1>
-            <p className="text-muted-foreground">{currentCourse.description}</p>
+            {currentCourse.title ? (
+              <h1 className="text-2xl font-bold">{currentCourse.title}</h1>
+            ) : (
+              <div className="w-3/4 h-8 bg-neutral-800 animate-pulse rounded-md" />
+            )}
+            {currentCourse.description ? (
+              <p className="text-muted-foreground">
+                {currentCourse.description}
+              </p>
+            ) : (
+              <>
+                <div className="w-3/4 h-2 bg-neutral-800 animate-pulse rounded-md" />
+                <div className="w-2/4 h-2 bg-neutral-800 animate-pulse rounded-md" />
+                <div className="w-1/4 h-2 bg-neutral-800 animate-pulse rounded-md" />
+              </>
+            )}
           </div>
         </div>
         <aside className="space-y-4">
