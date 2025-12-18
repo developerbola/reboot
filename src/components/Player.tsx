@@ -81,7 +81,6 @@ const Player = ({ src }: { src: string }) => {
     setCurrentTime(newTime);
   };
 
-  // Update buffered ranges
   const updateBuffered = () => {
     const video = videoRef.current;
     if (!video || !video.buffered.length) return;
@@ -189,27 +188,23 @@ const Player = ({ src }: { src: string }) => {
         playsInline
       />
 
-      {/* Loading Spinner */}
       {(isLoading || isBuffering) && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/20">
           <Loader2 className="w-12 h-12 text-white animate-spin" />
         </div>
       )}
 
-      {/* Custom Controls */}
       <div
         className={cn(
           "absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-3 bg-linear-to-t from-black/60 via-black/40 to-transparent transition-all duration-200",
           !showControls ? "opacity-0 invisible" : "opacity-100 visible"
         )}
       >
-        {/* Timeline/Progress Bar */}
         <div
           ref={progressBarRef}
           className="relative w-full h-1.5 bg-white/20 rounded-full cursor-pointer group"
           onClick={handleProgressClick}
         >
-          {/* Buffered segments */}
           {buffered.map((range, index) => (
             <div
               key={index}
@@ -221,25 +216,21 @@ const Player = ({ src }: { src: string }) => {
             />
           ))}
           
-          {/* Current progress */}
           <div
             className="absolute h-full bg-white rounded-full transition-all"
             style={{
               width: `${(currentTime / duration) * 100}%`,
             }}
           >
-            {/* Progress handle */}
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
         </div>
 
-        {/* Control buttons */}
         <div className="flex items-center gap-2">
           <Button size="icon" variant="outline" onClick={togglePlay}>
             {playing ? <Pause className="text-white" /> : <Play className="text-white" />}
           </Button>
 
-          {/* Volume */}
           <div
             onMouseEnter={() => setShowVolumeSlider(true)}
             onMouseLeave={() => setShowVolumeSlider(false)}

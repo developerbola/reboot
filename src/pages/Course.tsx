@@ -68,7 +68,6 @@ export default function Course() {
       <div className="mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-4">
           <Player src={currentCourse.src} />
-          {/* Course Info */}
           <div className="space-y-2">
             {currentCourse.title ? (
               <h1 className="text-2xl font-bold">{currentCourse.title}</h1>
