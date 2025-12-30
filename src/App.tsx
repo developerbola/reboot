@@ -1,23 +1,26 @@
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Help from "./pages/Help";
 import Pricing from "./pages/Pricing";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Login from "./pages/Login";
+import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayout";
 
 const App = () => {
   return (
-    <>
-      <Navbar />
-      <main className="mt-15">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/help" element={<Help />} />
-          <Route path="/pricing" element={<Pricing />} />
-        </Routes>
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      {/* Pages WITH Navbar & Footer */}
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/pricing" element={<Pricing />} />
+      </Route>
+
+      {/* Pages WITHOUT Navbar & Footer */}
+      <Route element={<AuthLayout />}>
+        <Route path="/login" element={<Login />} />
+      </Route>
+    </Routes>
   );
 };
 

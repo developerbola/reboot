@@ -104,3 +104,8 @@ html {
   display: inline-block;
   margin-right: 0.25rem;
 }
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}

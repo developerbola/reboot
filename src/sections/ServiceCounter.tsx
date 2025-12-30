@@ -43,7 +43,7 @@ const ServiceCounter = () => {
             />
             <p className="text-5xl">+</p>
           </div>
-          <p className="text-muted-foreground font-light">
+          <p className="text-[#ffffff60] font-light">
             Customers Worldwide
           </p>
         </div>
@@ -58,7 +58,7 @@ const ServiceCounter = () => {
             />
             <p className="mb-2.75">Years</p>
           </div>
-          <p className="text-muted-foreground font-light">In Business</p>
+          <p className="text-[#ffffff60] font-light">In Business</p>
         </div>
 
         <div className="flex flex-col justify-start">
@@ -68,7 +68,7 @@ const ServiceCounter = () => {
             className="text-5xl"
             trend={1}
           />
-          <p className="text-muted-foreground font-light">
+          <p className="text-[#ffffff60] font-light">
             Countries Served
           </p>
         </div>
@@ -80,7 +80,7 @@ const ServiceCounter = () => {
             className="text-5xl"
             trend={1}
           />
-          <p className="text-muted-foreground font-light">
+          <p className="text-[#ffffff60] font-light">
             Servers Running
           </p>
         </div>
