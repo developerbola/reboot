@@ -3,6 +3,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+body,
+html {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -46,7 +54,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.145 0 0);
+  --background: #0a0a0a;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -86,4 +94,13 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+#ball {
+  background: radial-gradient(#333, transparent);
+}
+
+.word {
+  display: inline-block;
+  margin-right: 0.25rem;
 }
