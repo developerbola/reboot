@@ -1,5 +1,28 @@
 import { useState } from "react";
 
+const IconItem = ({ iconObj, index, hexToRgba }: any) => {
+  const IconComponent = iconObj.icon;
+  const isEven = (index + 1) % 2 === 0;
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      className="size-20 grid place-items-center rounded-md transition-all duration-300 transform hover:scale-110"
+      style={{
+        background: hovered
+          ? hexToRgba(iconObj.color, 0.1)
+          : isEven
+          ? "#ffffff18"
+          : "#ffffff08",
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <IconComponent stroke={hovered ? iconObj.color : "#ffffff"} />
+    </div>
+  );
+};
+
 const WeHave = () => {
   const icons = [
     { icon: Code, color: "#FF4D4D" },
@@ -13,7 +36,6 @@ const WeHave = () => {
     { icon: Globus, color: "#FF704D" },
   ];
 
-  // Helper to convert hex to rgba with opacity
   const hexToRgba = (hex: string, alpha: number) => {
     const r = parseInt(hex.slice(1, 3), 16);
     const g = parseInt(hex.slice(3, 5), 16);
@@ -22,10 +44,9 @@ const WeHave = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-10 justify-center mt-40">
-      {/* Left Text Section */}
-      <div className="w-full md:w-1/3 flex flex-col gap-2 text-white">
-        <h1 className="text-6xl font-bold">We have all</h1>
+    <div className="flex flex-col md:flex-row items-center gap-16 justify-center mt-40 px-10">
+      <div className="w-full md:w-1/3 flex flex-col gap-6 text-white">
+        <h1 className="text-6xl font-bold tracking-tight">We have all</h1>
         <div className="flex gap-2 flex-wrap">
           {["Cloud VPS", "Cloud VDS", "Storage VPS", "Windows VPS"].map(
             (i, index) => (
@@ -33,14 +54,14 @@ const WeHave = () => {
                 key={i}
                 className={`pr-2 ${
                   index !== 3 ? "border-r border-[#ffffff20]" : ""
-                } text-[#ffffff60] font-light`}
+                } text-[#ffffff60] font-light text-sm`}
               >
                 {i}
               </span>
             )
           )}
         </div>
-        <p className="mt-4 text-[#ffffff80] font-light">
+        <p className="text-[#ffffff80] font-light leading-relaxed">
           High-performance virtual servers built for speed, reliability, and
           scale. Deploy in seconds, choose your resources, and run workloads
           with full root access, enterprise-grade hardware, and 24/7 expert
@@ -48,31 +69,15 @@ const WeHave = () => {
         </p>
       </div>
 
-      {/* Right Icon Grid */}
-      <div className="grid grid-cols-3 grid-rows-3 gap-4">
-        {icons.map((iconObj, index) => {
-          const IconComponent = iconObj.icon;
-          const isEven = (index + 1) % 2 === 0;
-          const [hovered, setHovered] = useState(false);
-
-          return (
-            <div
-              key={index}
-              className="size-20 grid place-items-center rounded-md"
-              style={{
-                background: hovered
-                  ? hexToRgba(iconObj.color, 0.1)
-                  : isEven
-                  ? "#ffffff18"
-                  : "#ffffff08",
-              }}
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            >
-              <IconComponent stroke={hovered ? iconObj.color : "#ffffff"} />
-            </div>
-          );
-        })}
+      <div className="grid grid-cols-3 gap-6">
+        {icons.map((iconObj, index) => (
+          <IconItem
+            key={index}
+            iconObj={iconObj}
+            index={index}
+            hexToRgba={hexToRgba}
+          />
+        ))}
       </div>
     </div>
   );
@@ -172,7 +177,7 @@ const Globus = ({ stroke }: { stroke?: string }) => (
     <path
       stroke-linecap="round"
       stroke-linejoin="round"
-      d="m20.893 13.393-1.135-1.135a2.252 2.252 0 0 1-.421-.585l-1.08-2.16a.414.414 0 0 0-.663-.107.827.827 0 0 1-.812.21l-1.273-.363a.89.89 0 0 0-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.212.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 0 1-1.81 1.025 1.055 1.055 0 0 1-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.655-.261a2.25 2.25 0 0 1-1.383-2.46l.007-.042a2.25 2.25 0 0 1 .29-.787l.09-.15a2.25 2.25 0 0 1 2.37-1.048l1.178.236a1.125 1.125 0 0 0 1.302-.795l.208-.73a1.125 1.125 0 0 0-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 0 1-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 0 1-1.458-1.137l1.411-2.353a2.25 2.25 0 0 0 .286-.76m11.928 9.869A9 9 0 0 0 8.965 3.525m11.928 9.868A9 9 0 1 1 8.965 3.525"
+      d="m20.893 13.393-1.135-1.135a2.252 2.252 0 0 1-.421-.585l-1.08-2.16a.414.414 0 0 0-.663-.107.827.827 0 0 1-.812.21l-1.273-.363a.89.89 0 0 0-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.212.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 0 1-1.81 1.025 1.055 1.055 0 0 1-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.655-.261a2.25 2.25 0 0 1-1.383-2.46l.007-.042a2.25 2.25 0 0 1 .29-.787l.09-.15a2.25 2.25 0 0 1 2.37-1.048l1.178.236a1.125 1.125 0 0 0 1.302-.795l.208-.73a1.125 1.125 0 0 0-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 0 1-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 0 1-1.458-1.137l1.411-2.353a2.25 2.25 0 0 0 .286-.76m11.928 9.869A9 9 0 0 0 8.965 3.525m11.928 9.868A9 9 1 1 8.965 3.525"
     />
   </svg>
 );

@@ -64,9 +64,11 @@ const Hero = () => {
               Human Support
             </p>
             <div className="flex gap-2 mt-2">
-              <Button variant={"outline"} className="rounded-full">
-                Order <Server className="size-3.5" />
-              </Button>
+              <Link to="/pricing">
+                <Button variant={"outline"} className="rounded-full">
+                  Order <Server className="size-3.5" />
+                </Button>
+              </Link>
               <Link to={"/pricing"}>
                 <Button variant={"link"}>
                   View all cloud servers <ArrowUpRight size={16} />
