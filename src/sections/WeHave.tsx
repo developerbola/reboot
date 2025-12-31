@@ -44,7 +44,7 @@ const WeHave = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-16 justify-center mt-40 px-10">
+    <div className="flex flex-col md:flex-row items-center gap-16 justify-center mt-20 mb-30 px-10">
       <div className="w-full md:w-1/3 flex flex-col gap-6 text-white">
         <h1 className="text-6xl font-bold tracking-tight">We have all</h1>
         <div className="flex gap-2 flex-wrap">

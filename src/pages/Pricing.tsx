@@ -253,7 +253,7 @@ const Pricing = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white pt-32 pb-20 px-10">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-30">
           <h1 className="text-5xl font-bold mb-4 tracking-tight">
             Full Cloud Price List
           </h1>
@@ -261,16 +261,6 @@ const Pricing = () => {
             Transparent pricing for all our high-performance infrastructure.
             Compare resources and scale effortlessly.
           </p>
-          <div className="flex justify-center gap-4">
-            <Link to="/plans">
-              <Button
-                variant="outline"
-                className="rounded-full border-[#ffffff20]"
-              >
-                Back to simple plans
-              </Button>
-            </Link>
-          </div>
         </div>
 
         <PricingTable

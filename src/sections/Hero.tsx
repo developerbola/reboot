@@ -4,25 +4,29 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
+import HeroImage from "@/components/HeroImage";
 
 gsap.registerPlugin(SplitText);
 
 const Hero = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!headingRef.current || !paragraphRef.current) return;
+    if (!headingRef.current || !paragraphRef.current || !buttonsRef.current)
+      return;
 
-    // Split heading into lines & words
+    // Split text
     const headingSplit = new SplitText(headingRef.current, {
       type: "lines, words",
     });
+
     const paragraphSplit = new SplitText(paragraphRef.current, {
       type: "lines, words",
     });
 
-    // Set overflow hidden for each line
+    // Prevent overflow during animation
     headingSplit.lines.forEach((line: any) =>
       gsap.set(line, { overflow: "hidden" })
     );
@@ -30,24 +34,49 @@ const Hero = () => {
       gsap.set(line, { overflow: "hidden" })
     );
 
-    // Animate words line by line
+    const buttons = buttonsRef.current.children;
+
+    // Initial button state
+    gsap.set(buttons, {
+      opacity: 0,
+    });
+
     const tl = gsap.timeline({
-      defaults: { duration: 0.6, ease: "power2.out" },
+      defaults: { ease: "power2.out" },
     });
 
     tl.from(headingSplit.words, {
       yPercent: 100,
       opacity: 0,
+      duration: 0.6,
       stagger: 0.05,
-    }).from(
-      paragraphSplit.words,
-      { yPercent: 100, opacity: 0, stagger: 0.03 },
-      "-=0.3"
-    );
+    })
+      .from(
+        paragraphSplit.words,
+        {
+          yPercent: 100,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.03,
+        },
+        "-=0.3"
+      )
+      // Buttons reveal one by one
+      .to(
+        buttons,
+        {
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+        },
+        "+=0.1"
+      );
 
     return () => {
       headingSplit.revert();
       paragraphSplit.revert();
+      tl.kill();
     };
   }, []);
 
@@ -63,25 +92,23 @@ const Hero = () => {
               High-Performance Cloud & Dedicated Hosting with Round-the-Clock
               Human Support
             </p>
-            <div className="flex gap-2 mt-2">
+            <div className="flex gap-2 mt-2" ref={buttonsRef}>
               <Link to="/pricing">
-                <Button variant={"outline"} className="rounded-full">
-                  Order <Server className="size-3.5" />
+                <Button variant="outline" className="rounded-full">
+                  Order <Server className="size-3.5 ml-1" />
                 </Button>
               </Link>
-              <Link to={"/pricing"}>
-                <Button variant={"link"}>
-                  View all cloud servers <ArrowUpRight size={16} />
+
+              <Link to="/pricing">
+                <Button variant="link">
+                  View all cloud servers
+                  <ArrowUpRight size={16} className="ml-1" />
                 </Button>
               </Link>
             </div>
           </div>
         </div>
-        <img
-          src="/hero.jpg"
-          alt="hero"
-          className="h-full object-cover w-2/3 self-end rounded-xl"
-        />
+        <HeroImage />
       </div>
     </div>
   );

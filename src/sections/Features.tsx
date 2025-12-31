@@ -1,4 +1,4 @@
-import { Zap, Shield, Globe, Cpu } from "lucide-react";
+import { Zap, Shield, Globe, Cpu, Cloud, Headphones } from "lucide-react";
 
 const features = [
   {
@@ -25,16 +25,29 @@ const features = [
       "Low-latency connections through our premium network with points of presence across 4 continents.",
     icon: Globe,
   },
+  {
+    title: "99.99% Uptime",
+    description:
+      "Highly redundant cloud architecture designed for maximum reliability and availability.",
+    icon: Cloud,
+  },
+  {
+    title: "24/7 Human Support",
+    description:
+      "Real engineers available around the clock to help you solve issues fast.",
+    icon: Headphones,
+  },
 ];
+
 
 const Features = () => {
   return (
     <section className="py-32 px-10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {features.map((f, i) => (
-            <div key={i} className="flex flex-col gap-4 group">
-              <div className="size-12 rounded-2xl bg-white/5 border border-[#ffffff05] flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
+            <div key={i} className="flex flex-col gap-4 p-5">
+              <div className="size-12 rounded-xl bg-white/10 border border-[#ffffff08] flex items-center justify-center transition-all duration-300">
                 <f.icon size={24} />
               </div>
               <h3 className="text-xl font-medium text-white">{f.title}</h3>

@@ -56,13 +56,13 @@ const Domains = () => {
             <span className="text-[#ffffff30]">for your project.</span>
           </h1>
 
-          <div className="relative max-w-2xl mx-auto mt-12 group">
-            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-white/20 size-6 transition-colors group-focus-within:text-white" />
+          <div className="relative max-w-2xl mx-auto mt-12 group h-20 px-8 bg-white/5 border-white/10 rounded-full flex items-center">
+            <Search className="size-10 text-white" />
             <Input
               placeholder="findyourperfectdomain.com"
-              className="h-20 bg-white/5 border-white/10 rounded-full pl-16 pr-40 text-xl font-light focus:ring-1 focus:ring-white/20 transition-all placeholder:text-white/10"
+              className="pl-3 pr-40 text-xl font-light border-none! outline-none! ring-0!"
             />
-            <Button className="absolute right-2 top-2 bottom-2 px-10 rounded-full bg-white text-black hover:bg-neutral-200 text-lg font-medium">
+            <Button className="rounded-full bg-white text-black hover:bg-neutral-200 text-lg font-medium" size={'lg'}>
               Search
             </Button>
           </div>

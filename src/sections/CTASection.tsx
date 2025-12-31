@@ -8,8 +8,8 @@ const CTASection = () => {
       <div className="max-w-7xl mx-auto relative overflow-hidden rounded-[48px] bg-[#111] border border-white/5 p-12 md:p-24 flex flex-col items-center text-center">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-          <div className="absolute top-[-10%] left-[10%] size-[500px] bg-white/2 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[10%] size-[500px] bg-white/1 rounded-full blur-[120px]" />
+          <div className="absolute top-[-10%] left-[10%] size-125 bg-white/2 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[-10%] right-[10%] size-125 bg-white/1 rounded-full blur-[120px]" />
         </div>
 
         <div className="relative z-10">
@@ -35,14 +35,15 @@ const CTASection = () => {
             <Link to="/login">
               <Button
                 size="lg"
-                className="rounded-full bg-white text-black hover:bg-neutral-200 h-16 px-12 text-lg font-medium transition-all active:scale-95"
+                variant={"secondary"}
+                className="rounded-full h-16 px-12! text-lg font-medium transition-all active:scale-95"
               >
-                Get Started Now <ArrowRight className="ml-2" />
+                Get Started Now <ArrowRight className="ml-2 size-6" />
               </Button>
             </Link>
             <Link to="/pricing">
               <Button
-                variant="ghost"
+                variant="outline"
                 size="lg"
                 className="rounded-full text-white hover:bg-white/5 h-16 px-10 text-lg font-light"
               >
@@ -50,23 +51,6 @@ const CTASection = () => {
               </Button>
             </Link>
           </div>
-        </div>
-
-        {/* Bottom hardware hint */}
-        <div className="mt-20 pt-10 border-t border-white/5 w-full flex flex-wrap justify-center gap-x-12 gap-y-6">
-          {[
-            "99.99% Uptime",
-            "NVMe Storage",
-            "24/7 Human Support",
-            "Global Network",
-          ].map((text) => (
-            <span
-              key={text}
-              className="text-[11px] uppercase tracking-[0.2em] text-[#ffffff20] font-bold"
-            >
-              {text}
-            </span>
-          ))}
         </div>
       </div>
     </section>

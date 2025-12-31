@@ -53,7 +53,7 @@ const Blog = () => {
           {posts.map((post, i) => (
             <div
               key={i}
-              className="group flex flex-col h-full bg-white/2 border border-white/5 rounded-[32px] overflow-hidden transition-all hover:border-white/10 hover:translate-y-[-4px]"
+              className="group flex flex-col h-full bg-white/2 border border-white/5 rounded-[32px] overflow-hidden transition-all hover:border-white/10 hover:-translate-y-1"
             >
               <div className="aspect-video relative overflow-hidden">
                 <img

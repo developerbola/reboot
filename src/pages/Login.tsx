@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
-import { Logo } from "@/components/Logo";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Github } from "lucide-react";
 
 const Login = () => {
   return (
@@ -17,17 +16,16 @@ const Login = () => {
 
       {/* LEFT: Login Form */}
       <div className="flex items-center justify-center px-8 sm:px-12">
-        <div className="w-full max-w-md space-y-10 animate-in fade-in slide-in-from-left-4 duration-700">
-          <div className="space-y-4">
-            <div className="flex justify-center lg:justify-start">
-              <Logo />
-            </div>
-            <h1 className="text-4xl font-medium text-white tracking-tight">
-              Access Control
-            </h1>
-            <p className="text-[#ffffff40] font-light">
-              Enter your credentials to access the infrastructure console.
-            </p>
+        <div className="w-full max-w-md space-y-10 animate-in fade-in duration-700">
+          <div className="flex gap-2">
+            <Button className="w-[49%] h-12 text-md" variant={"outline"}>
+              <Google />
+              Google
+            </Button>
+            <Button className="w-[49%] h-12 text-md" variant={"outline"}>
+              <Github />
+              Github
+            </Button>
           </div>
 
           <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
@@ -38,7 +36,7 @@ const Login = () => {
               <Input
                 type="email"
                 placeholder="name@company.com"
-                className="bg-white/3 border-white/5 h-12 rounded-2xl focus:border-white/20 transition-all text-white placeholder:text-[#ffffff20]"
+                className="focus:border-white/1 py-5 focus:ring-white/1 transition-all placeholder:text-[#ffffff20]"
               />
             </div>
             <div className="space-y-2">
@@ -56,11 +54,14 @@ const Login = () => {
               <Input
                 type="password"
                 placeholder="••••••••"
-                className="bg-white/3 border-white/5 h-12 rounded-2xl focus:border-white/20 transition-all text-white placeholder:text-[#ffffff20]"
+                className="focus:border-white/1 py-5 focus:ring-white/1 transition-all placeholder:text-[#ffffff20]"
               />
             </div>
 
-            <Button className="w-full h-12 rounded-2xl bg-white text-black hover:bg-white/90 font-medium mt-4">
+            <Button
+              className="w-full h-12 font-light mt-4 rounded-none"
+              variant={"outline"}
+            >
               Sign In
             </Button>
           </form>
@@ -78,7 +79,7 @@ const Login = () => {
       </div>
 
       {/* RIGHT: Visual Side */}
-      <div className="hidden lg:block relative m-6 rounded-[3rem] overflow-hidden bg-[#111]">
+      <div className="hidden lg:block relative bg-[#111]">
         <img
           src="/login.png"
           alt="Login backdrop"
@@ -91,10 +92,22 @@ const Login = () => {
             deployment. Service is blazing fast."
           </p>
           <div className="flex items-center gap-3">
-            <div className="size-10 rounded-full bg-white/10 border border-white/10" />
+            <img
+              src="https://avatars.githubusercontent.com/u/130325184?v=4"
+              className="size-10 rounded-full border border-white/10"
+              alt=""
+            />
             <div>
-              <p className="text-sm text-white font-medium">Alex Rivera</p>
-              <p className="text-xs text-[#ffffff40]">CTO at TechFlow</p>
+              <p className="text-sm text-white font-medium">Mutawirr</p>
+              <p className="text-xs text-[#ffffff40]">
+                CTO at{" "}
+                <a
+                  href="https://aquawar.vercel.app"
+                  className="underline text-muted-foreground"
+                >
+                  Aquawar
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -104,3 +117,30 @@ const Login = () => {
 };
 
 export default Login;
+
+const Google = () => (
+  <svg
+    width="800px"
+    height="800px"
+    viewBox="-3 0 262 262"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid"
+  >
+    <path
+      d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
+      fill="#4285F4"
+    />
+    <path
+      d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
+      fill="#34A853"
+    />
+    <path
+      d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"
+      fill="#FBBC05"
+    />
+    <path
+      d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
+      fill="#EB4335"
+    />
+  </svg>
+);
