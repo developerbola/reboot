@@ -31,7 +31,7 @@ const About = () => {
 
           <div className="aspect-21/9 bg-white/5 rounded-3xl overflow-hidden mb-12 border border-white/5">
             <img
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop"
+              src="https://i.pinimg.com/736x/b0/2b/5b/b02b5b23a6acc02e8c1c2e8dcf5ceca1.jpg"
               alt="Infrastructure"
               className="w-full h-full object-cover opacity-60"
             />
@@ -59,7 +59,7 @@ const About = () => {
           <div className="grid grid-cols-2 gap-8 mb-12">
             <div className="aspect-square bg-white/5 rounded-3xl overflow-hidden border border-white/5">
               <img
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=1000&auto=format&fit=crop"
+                src="https://i.pinimg.com/1200x/ed/1b/25/ed1b258e6de6056dce473d152982d447.jpg"
                 alt="Detail 1"
                 className="w-full h-full object-cover opacity-50"
               />
