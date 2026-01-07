@@ -32,7 +32,7 @@ const ServiceCounter = () => {
       ref={containerRef}
       className="h-100 w-full grid place-items-center"
     >
-      <div className="flex items-center justify-evenly w-full">
+      <div className="flex items-start sm:items-center p-10 sm:p-0 justify-evenly w-full flex-col sm:flex-row">
         <div className="flex flex-col justify-start">
           <div className="flex items-center gap-1">
             <NumberFlow

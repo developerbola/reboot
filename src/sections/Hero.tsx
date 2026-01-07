@@ -17,7 +17,6 @@ const Hero = () => {
     if (!headingRef.current || !paragraphRef.current || !buttonsRef.current)
       return;
 
-    // Split text
     const headingSplit = new SplitText(headingRef.current, {
       type: "lines, words",
     });
@@ -26,7 +25,6 @@ const Hero = () => {
       type: "lines, words",
     });
 
-    // Prevent overflow during animation
     headingSplit.lines.forEach((line: any) =>
       gsap.set(line, { overflow: "hidden" })
     );
@@ -36,7 +34,6 @@ const Hero = () => {
 
     const buttons = buttonsRef.current.children;
 
-    // Initial button state
     gsap.set(buttons, {
       opacity: 0,
     });
@@ -61,7 +58,6 @@ const Hero = () => {
         },
         "-=0.3"
       )
-      // Buttons reveal one by one
       .to(
         buttons,
         {
@@ -81,10 +77,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="h-[calc(100vh-60px)] px-5 pb-5 relative">
+    <div className="h-[calc(100vh-60px)] px-5 pb-5">
       <div className="relative h-full w-full flex">
-        <div className="w-1/3 flex items-end">
-          <div className="flex flex-col gap-2">
+        <div className="w-full md:w-1/3 p-4 md:p-0 flex items-end md:justify-center md:mr-5 z-2">
+          <div className="flex flex-col gap-2 w-full">
             <h1 className="text-4xl" ref={headingRef}>
               VPS and Bare Metal Hosting
             </h1>
